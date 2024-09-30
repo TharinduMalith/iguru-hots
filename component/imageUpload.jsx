@@ -8,7 +8,7 @@ const ImageUpload = ({ setImg, img }) => {
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-        setImage(file);
+      setImg(file);
     //   const reader = new FileReader();
     //   reader.onloadend = () => {
     //     setImage(reader.result);
@@ -21,7 +21,7 @@ const ImageUpload = ({ setImg, img }) => {
     e.preventDefault();
     const formData = new FormData();
 
-    formData.append('image', image);
+    formData.append('file', img);
   //   fetch('http://localhost:8001/test')
   // .then(response => response.json())
   // .then(data => {
@@ -36,10 +36,6 @@ const ImageUpload = ({ setImg, img }) => {
         const response = await fetch('http://localhost:8001/upload', {
           method: 'POST',
           body: formData,
-          headers: {
-            // 'Content-Type': 'multipart/form-data' is not needed for FormData
-            // because the browser will set the correct boundary automatically
-          },
         });
   
         if (response.ok) {
@@ -69,7 +65,7 @@ const ImageUpload = ({ setImg, img }) => {
             <div className="w-full flex h-full justify-center items-center">
           <img
             className=""
-            src={image}
+            src={URL.createObjectURL(image)}
             alt="Image Preview"
             style={{ width: "400px", height: "400px" }}
           />

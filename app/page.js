@@ -16,7 +16,7 @@ export default function Home() {
       method: 'GET',
     });
     const response = await res.json();
-    console.log(response);
+    console.log(response) , "response";
     setPage(3);
   };
 

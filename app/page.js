@@ -11,6 +11,15 @@ export default function Home() {
     file : ''
   });
 
+  const seeHowAIDetected = async() => {
+    const res = await fetch('http://localhost:8001/gradcam', {
+      method: 'GET',
+    });
+    const response = await res.json();
+    console.log(response);
+    setPage(3);
+  };
+
   return (
     <div className=" font-[family-name:var(--font-geist-sans)] h-full">
       <main className="flex h-full">
@@ -32,7 +41,7 @@ export default function Home() {
             setPage(2)
             setWellnessCheck(data)}}/>
         ) : page === 2 ? (
-          <PageTwo wellnessCheck={wellnessCheck} image={img}/>
+          <PageTwo wellnessCheck={wellnessCheck} image={img} seeHowAIDetected={seeHowAIDetected}/>
         ) : (
           <PageThree />
         )}
@@ -44,7 +53,7 @@ export default function Home() {
 
 const PageTwo = ({wellnessCheck , image}) => {
 
-  const {disease , solution} = diseases[wellnessCheck?.predictedDisease];
+  const {disease , solution , sinhalaName} = diseases[wellnessCheck?.predictedDisease];
   console.log(solution , "solution")
   return (
     <div className="flex flex-col justify-center w-full h-full items-center gap-5">
@@ -58,13 +67,13 @@ const PageTwo = ({wellnessCheck , image}) => {
           />
           </div>
         )}
-      <p>Detected Disease : {disease}</p>
+      <p>Detected Disease : {disease} - {sinhalaName}</p>
       <p>Solution For Disease</p>
       <p className="w-[600px] content-around">
       {solution}
       </p>
       <button
-        onClick={() => {}}
+        onClick={seeHowAIDetected}
         className="bg-[#bf783a] text-white px-4 py-2 rounded mt-4"
       >
         See How AI Detected

@@ -51,7 +51,7 @@ export default function Home() {
   );
 }
 
-const PageTwo = ({wellnessCheck , image}) => {
+const PageTwo = ({wellnessCheck , image , seeHowAIDetected}) => {
 
   const {disease , solution , sinhalaName} = diseases[wellnessCheck?.predictedDisease];
   console.log(solution , "solution")

@@ -9,6 +9,11 @@ const ImageUpload = ({ setImg, img , setWellnessCheck }) => {
     const file = e.target.files[0];
     if (file) {
       setImg(file);
+      // const reader = new FileReader();
+      // reader.onload = (e) => {
+      //   setImage(e.target.result);
+      // };
+      // reader.readAsDataURL(file);
     }
   };
 
@@ -48,7 +53,7 @@ const ImageUpload = ({ setImg, img , setWellnessCheck }) => {
             <div className="w-full flex h-full justify-center items-center">
           <img
             className=""
-            src={URL.createObjectURL(image)}
+            src={URL.createObjectURL(img)}
             alt="Image Preview"
             style={{ width: "400px", height: "400px" }}
           />

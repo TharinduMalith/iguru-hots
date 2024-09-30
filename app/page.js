@@ -10,7 +10,7 @@ export default function Home() {
     predictedDisease: '',
     file : ''
   });
-  console.log(img , "img")
+
   return (
     <div className=" font-[family-name:var(--font-geist-sans)] h-full">
       <main className="flex h-full">
@@ -43,12 +43,21 @@ export default function Home() {
 }
 
 const PageTwo = ({wellnessCheck , image}) => {
-  console.log(wellnessCheck)
-  console.log()
+
   const {disease , solution} = diseases[wellnessCheck?.predictedDisease];
   console.log(solution , "solution")
   return (
     <div className="flex flex-col justify-center w-full h-full items-center gap-5">
+        {image && (
+            <div className="w-full flex h-full justify-center items-center">
+          <img
+            className=""
+            src={URL.createObjectURL(image)}
+            alt="Image Preview"
+            style={{ width: "400px", height: "400px" }}
+          />
+          </div>
+        )}
       <p>Detected Disease : {disease}</p>
       <p>Solution For Disease</p>
       <p className="w-[600px] content-around">

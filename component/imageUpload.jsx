@@ -9,11 +9,6 @@ const ImageUpload = ({ setImg, img , setWellnessCheck }) => {
     const file = e.target.files[0];
     if (file) {
       setImg(file);
-      // const reader = new FileReader();
-      // reader.onload = (e) => {
-      //   setImage(e.target.result);
-      // };
-      // reader.readAsDataURL(file);
     }
   };
 

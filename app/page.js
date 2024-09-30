@@ -44,12 +44,13 @@ export default function Home() {
 
 const PageTwo = ({wellnessCheck}) => {
   console.log(wellnessCheck)
+  console.log(diseases[wellnessCheck?.predictedDisease])
   return (
     <div className="flex flex-col justify-center w-full h-full items-center gap-5">
-      <p>Detected Disease : {diseases[wellnessCheck?.predictedDisease]}</p>
+      {/* <p>Detected Disease : {diseases[wellnessCheck?.predictedDisease]}</p> */}
       <p>Solution For Disease</p>
       <p className="w-[600px] content-around">
-      {diseases[wellnessCheck?.predictedDisease].solution}
+      {/* {diseases[wellnessCheck?.predictedDisease].solution} */}
       </p>
       <button
         onClick={() => {}}

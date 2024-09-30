@@ -4,9 +4,10 @@ import React, { useState } from "react";
 const ImageUpload = ({ setImg, img }) => {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(null);
-
+console.log(img , "img")
   const handleImageChange = (e) => {
     const file = e.target.files[0];
+    console.log(file , "file");
     if (file) {
       setImg(file);
     //   const reader = new FileReader();
@@ -20,7 +21,7 @@ const ImageUpload = ({ setImg, img }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-
+    console.log(img);
     formData.append('file', img);
   //   fetch('http://localhost:8001/test')
   // .then(response => response.json())

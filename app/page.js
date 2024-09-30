@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Home() {
   const [page, setPage] = useState(1);
   const [img , setImg] = useState(null)
-
+  console.log(img , "img")
   return (
     <div className=" font-[family-name:var(--font-geist-sans)] h-full">
       <main className="flex h-full">
@@ -24,7 +24,7 @@ export default function Home() {
         </div>
 
         {page === 1 ? (
-          <ImageUpload  setImage={setImg} image={img}/>
+          <ImageUpload  setImg={setImg} img={img}/>
         ) : page === 2 ? (
           <PageTwo />
         ) : (

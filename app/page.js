@@ -32,7 +32,7 @@ export default function Home() {
             setPage(2)
             setWellnessCheck(data)}}/>
         ) : page === 2 ? (
-          <PageTwo wellnessCheck={wellnessCheck}/>
+          <PageTwo wellnessCheck={wellnessCheck} image={img}/>
         ) : (
           <PageThree />
         )}
@@ -42,7 +42,7 @@ export default function Home() {
   );
 }
 
-const PageTwo = ({wellnessCheck}) => {
+const PageTwo = ({wellnessCheck , image}) => {
   console.log(wellnessCheck)
   console.log()
   const {disease , solution} = diseases[wellnessCheck?.predictedDisease];
@@ -52,7 +52,7 @@ const PageTwo = ({wellnessCheck}) => {
       <p>Detected Disease : {disease}</p>
       <p>Solution For Disease</p>
       <p className="w-[600px] content-around">
-      {/* {diseases[wellnessCheck?.predictedDisease].solution} */}
+      {solution}
       </p>
       <button
         onClick={() => {}}

@@ -44,7 +44,7 @@ const ImageUpload = ({ setImg, img , setWellnessCheck }) => {
           accept="image/*"
           onChange={handleImageChange}
         />
-        {image && (
+        {img && (
             <div className="w-full flex h-full justify-center items-center">
           <img
             className=""

@@ -18,10 +18,11 @@ const ImageUpload = ({ setImg, img , setWellnessCheck }) => {
     formData.append('file', img);
 
     try {
-        const response = await fetch('http://localhost:8001/upload', {
+        const res = await fetch('http://localhost:8001/upload', {
           method: 'POST',
           body: formData,
         });
+        const response = await res.json();
         console.log(response , "response")
         const newImage = response.predicted_disease.replace("C:\\Users\\Supun\\Desktop\\A-Harshika\\frontend\\iguru-hots\\public\\output_images\\", "");
         console.log(newImage , "newImage");

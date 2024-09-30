@@ -49,7 +49,7 @@ const PageTwo = ({wellnessCheck}) => {
       <p>Detected Disease : {diseases[wellnessCheck?.predictedDisease]}</p>
       <p>Solution For Disease</p>
       <p className="w-[600px] content-around">
-      {diseases[wellnessCheck?.solution]}
+      {diseases[wellnessCheck?.predictedDisease].solution}
       </p>
       <button
         onClick={() => {}}

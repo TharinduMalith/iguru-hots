@@ -22,7 +22,7 @@ const ImageUpload = ({ setImg, img , setWellnessCheck }) => {
           method: 'POST',
           body: formData,
         });
-        console.log(response , "response")
+        console.log(response.data , "response")
         const newImage = response.predicted_disease.replace("C:\\Users\\Supun\\Desktop\\A-Harshika\\frontend\\iguru-hots\\public\\output_images\\", "");
         console.log(newImage , "newImage");
         setWellnessCheck({

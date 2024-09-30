@@ -5,7 +5,11 @@ import { useState } from "react";
 
 export default function Home() {
   const [page, setPage] = useState(1);
-  const [img , setImg] = useState(null)
+  const [img , setImg] = useState(null);
+  const [wellnessCheck , setWellnessCheck] = useState({
+    predictedDisease: '',
+    file : ''
+  });
   console.log(img , "img")
   return (
     <div className=" font-[family-name:var(--font-geist-sans)] h-full">
@@ -24,9 +28,11 @@ export default function Home() {
         </div>
 
         {page === 1 ? (
-          <ImageUpload  setImg={setImg} img={img}/>
+          <ImageUpload  setImg={setImg} img={img} setWellnessCheck={(data) => {
+            setPage(2)
+            setWellnessCheck(data)}}/>
         ) : page === 2 ? (
-          <PageTwo />
+          <PageTwo wellnessCheck={wellnessCheck}/>
         ) : (
           <PageThree />
         )}
@@ -36,20 +42,13 @@ export default function Home() {
   );
 }
 
-const PageTwo = () => {
+const PageTwo = ({wellnessCheck}) => {
   return (
     <div className="flex flex-col justify-center w-full h-full items-center gap-5">
-      <p>Detected Disease : Rice Blast</p>
+      <p>Detected Disease : {diseases[wellnessCheck?.predictedDisease]}</p>
       <p>Solution For Disease</p>
       <p className="w-[600px] content-around">
-        Rice blast is one of the most devastating diseases affecting rice crops
-        worldwide, caused by the fungus Magnaporthe oryzae. This pathogen can
-        severely impact yields, leading to significant economic losses for
-        farmers and threatening food security in rice-dependent regions. First
-        identified in the 19th century, rice blast remains a persistent
-        challenge in agricultural practices, especially in areas with favorable
-        conditions for fungal growth, such as warm temperatures and high
-        humidity.
+      {diseases[wellnessCheck?.solution]}
       </p>
       <button
         onClick={() => {}}
@@ -80,3 +79,31 @@ const PageThree = () => {
     </div>
   );
 };
+
+
+const diseases = {
+  0 : {
+    "id": 0,
+    "disease": "Bacterial Blight",
+    "sinhalaName": "කොල අංගමාරය",
+    "solution": "Use resistant rice varieties and ensure proper field drainage to prevent waterlogging. Apply bactericides like copper oxychloride at early stages."
+  },
+  1 : {
+    "id": 1,
+    "sinhalaName": "කොල පාලුව",
+    "disease": "Rice Blast",
+    "solution": "Plant resistant varieties and avoid excessive nitrogen application. Apply fungicides like tricyclazole or carbendazim when necessary."
+  },
+  2: {
+    "id": 2,
+    "disease": "Brown Spot",
+    "sinhalaName": "දුඹුරු පුල්ලි රෝගය",
+    "solution": "Maintain balanced fertilization and improve soil health. Apply fungicides such as mancozeb or propiconazole for severe cases."
+  },
+  3:{
+    "id": 3,
+    "disease": "Tungro",
+    "sinhalaName": "ටන්ග්‍රෝ වෛරස් රෝගය",
+    "solution": "Plant resistant varieties and control the vector (green leafhopper) using insecticides like imidacloprid or buprofezin."
+  }
+}

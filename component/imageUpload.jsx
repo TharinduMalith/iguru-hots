@@ -23,9 +23,7 @@ const ImageUpload = ({ setImg, img , setWellnessCheck }) => {
           body: formData,
         });
         const response = await res.json();
-        console.log(response , "response")
         const newImage = response.file_path.replace("C:\\Users\\Supun\\Desktop\\A-Harshika\\frontend\\iguru-hots\\public\\output_images\\", "");
-        console.log(newImage , "newImage");
         setWellnessCheck({
           predictedDisease : newImage,
           file: response.predicted_disease

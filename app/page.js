@@ -43,6 +43,7 @@ export default function Home() {
 }
 
 const PageTwo = ({wellnessCheck}) => {
+  console.log(wellnessCheck)
   return (
     <div className="flex flex-col justify-center w-full h-full items-center gap-5">
       <p>Detected Disease : {diseases[wellnessCheck?.predictedDisease]}</p>

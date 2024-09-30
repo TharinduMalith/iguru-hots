@@ -22,7 +22,7 @@ const ImageUpload = ({ setImg, img }) => {
     const formData = new FormData();
 
     formData.append('image', image);
-    fetch('http://localhost:8000/test')
+    fetch('http://localhost:8001/test')
   .then(response => response.json())
   .then(data => {
     // Handle the data here

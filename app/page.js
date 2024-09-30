@@ -44,10 +44,12 @@ export default function Home() {
 
 const PageTwo = ({wellnessCheck}) => {
   console.log(wellnessCheck)
-  console.log(diseases[wellnessCheck?.predictedDisease])
+  console.log()
+  const {disease , solution} = diseases[wellnessCheck?.predictedDisease];
+  console.log(solution , "solution")
   return (
     <div className="flex flex-col justify-center w-full h-full items-center gap-5">
-      {/* <p>Detected Disease : {diseases[wellnessCheck?.predictedDisease]}</p> */}
+      <p>Detected Disease : {disease}</p>
       <p>Solution For Disease</p>
       <p className="w-[600px] content-around">
       {/* {diseases[wellnessCheck?.predictedDisease].solution} */}
@@ -84,25 +86,25 @@ const PageThree = () => {
 
 
 const diseases = {
-  0 : {
+  '0' : {
     "id": 0,
     "disease": "Bacterial Blight",
     "sinhalaName": "කොල අංගමාරය",
     "solution": "Use resistant rice varieties and ensure proper field drainage to prevent waterlogging. Apply bactericides like copper oxychloride at early stages."
   },
-  1 : {
+  '1' : {
     "id": 1,
     "sinhalaName": "කොල පාලුව",
     "disease": "Rice Blast",
     "solution": "Plant resistant varieties and avoid excessive nitrogen application. Apply fungicides like tricyclazole or carbendazim when necessary."
   },
-  2: {
+  '2': {
     "id": 2,
     "disease": "Brown Spot",
     "sinhalaName": "දුඹුරු පුල්ලි රෝගය",
     "solution": "Maintain balanced fertilization and improve soil health. Apply fungicides such as mancozeb or propiconazole for severe cases."
   },
-  3:{
+  '3':{
     "id": 3,
     "disease": "Tungro",
     "sinhalaName": "ටන්ග්‍රෝ වෛරස් රෝගය",

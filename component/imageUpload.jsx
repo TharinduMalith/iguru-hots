@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 
-// https://7510-2402-d000-a400-34cb-7104-2e12-5de0-4114.ngrok-free.app
 const ImageUpload = ({ setImg, img }) => {
   const [image, setImage] = useState(null);
   const [loading, setLoading] = useState(null);
@@ -23,7 +22,7 @@ const ImageUpload = ({ setImg, img }) => {
     const formData = new FormData();
 
     formData.append('image', image);
-    fetch('https://5487-2402-d000-a400-34cb-7104-2e12-5de0-4114.ngrok-free.app/test')
+    fetch('http://localhost:8000/test')
   .then(response => response.json())
   .then(data => {
     // Handle the data here

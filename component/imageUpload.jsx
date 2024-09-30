@@ -22,38 +22,38 @@ const ImageUpload = ({ setImg, img }) => {
     const formData = new FormData();
 
     formData.append('image', image);
-    fetch('http://localhost:8001/test')
-  .then(response => response.json())
-  .then(data => {
-    // Handle the data here
-    console.log(data);
-  })
-  .catch(error => {
+  //   fetch('http://localhost:8001/test')
+  // .then(response => response.json())
+  // .then(data => {
+  //   // Handle the data here
+  //   console.log(data);
+  // })
+  // .catch(error => {
 
-    console.error('Error   fetching data:', error);
-  });
-    // try {
-    //     const response = await fetch('https://7510-2402-d000-a400-34cb-7104-2e12-5de0-4114.ngrok-free.app/upload', {
-    //       method: 'POST',
-    //       body: formData,
-    //       headers: {
-    //         // 'Content-Type': 'multipart/form-data' is not needed for FormData
-    //         // because the browser will set the correct boundary automatically
-    //       },
-    //     });
+  //   console.error('Error   fetching data:', error);
+  // });
+    try {
+        const response = await fetch('http://localhost:8001/upload', {
+          method: 'POST',
+          body: formData,
+          headers: {
+            // 'Content-Type': 'multipart/form-data' is not needed for FormData
+            // because the browser will set the correct boundary automatically
+          },
+        });
   
-    //     if (response.ok) {
-    //       const data = await response.json();
-    //       alert('Image uploaded successfully!');
-    //       console.log(data);
-    //     } else {
-    //       alert('Error uploading image.');
-    //     }
-    //   } catch (error) {
-    //     console.error('Error:', error);
-    //   } finally {
-    //     setLoading(false);
-    //   }
+        if (response.ok) {
+          const data = await response.json();
+          alert('Image uploaded successfully!');
+          console.log(data);
+        } else {
+          alert('Error uploading image.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      } finally {
+        setLoading(false);
+      }
   };
 
   return (
